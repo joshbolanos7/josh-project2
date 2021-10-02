@@ -9,6 +9,7 @@ The tools I used to build my app:
 - Javascript
 - CSS 
 - Node Express 
+- Node JS 
 
 ## Screenshots 
 

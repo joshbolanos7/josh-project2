@@ -4,9 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+    <title>Player Info</title>
 </head>
 <body>
+    <header>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/home/new"> Create/New</a></li>
+        </ul>
+    </header>
     
+    <div class="show">
+        <img src="<%= players.img %>" />
+        <h1>Name: <%= players.name %></h1>
+        <h2>Date of Birth: <%= players.dob %></h2>
+        <h2>Overall: <%= players.overall %></h2>
+        <h2>Nationality: <%= players.nationality %></h2>
+        <h2>Team: <%= players.team %></h2>
+        <h2>Number: <%= players.number %></h2>
+        <h2>Position: <%= players.position %></h2>
+    </nav>
 </body>
 </html>

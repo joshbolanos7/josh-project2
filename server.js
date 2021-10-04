@@ -7,7 +7,8 @@ const methodOverride = require('method-override');
 const mongoose = require ('mongoose');
 const app = express();
 const db = mongoose.connection;
-const Player = require('./models/playerSeed');
+// const Player = require('./models/playerSeed');//
+const Player = require('./models/players');
 //___________________
 //Port
 //___________________
@@ -39,7 +40,7 @@ db.on('disconnected', () => console.log('mongod disconnected'));
 app.use(express.static('public'));
 
 // populates req.body with parsed info from forms - if no data from forms will return an empty object {}
-app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
+app.use(express.urlencoded({ extended: true }));// extended: false - does not allow nested objects in query strings
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
 //use method override
@@ -51,30 +52,59 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
 // INDEX (get)
 app.get("/home" , (req, res) => {
-  res.render('index.ejs', { players: Player})
+  Player.find({}, (error, allPlayers) => {
+    res.render('index.ejs', {
+      players: allPlayers,
+    })
+  })
 });
 
 // NEW (get)
-
+app.get('/home/new', (req, res) => {
+  res.render('new.ejs')
+});
 
 // DESTROY (delete)
-
+app.delete('/home/:id', (req, res) => {
+  Player.findbyIdAndDelete(req.params.id, (err, data) => {
+    res.redirect('/home');
+  });
+});
 
 // UPDATE (put)
+app.put('/home/:id', (req, res) => {
+  Player.findByIdAndUpdate(req.params.id, req.body, 
+    {new: true},
+     (error, updatedPlayer) => {
+       res.redirect(`/home/${req.params.id}`);
+     })
+  })
 
 
 // CREATE (post)
+app.post('/home', (req, res) => {
+  Player.create(req.body, (error, createdPlayer) => {
+    res.redirect('/home');
+  })
+})
 
 
 // EDIT (get) (put)
-
+app.get('/home/:id/edit', (req, res) => {
+  Player.findById(req.params.id, (error,foundPlayers) => {
+    res.render('edit.ejs', {players: foundPlayers})
+  })  
+})
 
 // SHOW (get)
+app.get('/home/:id', (req, res) => {
+  Player.findById(req.params.id, (err, foundPlayers) => {
+    res.render('show.ejs', { 
+      players: foundPlayers,
+    })
+  })
+});
 
-
-// app.get('/' , (req, res) => {
-//   res.send('Hello World!');
-// });
 
 // =======================================
 //              LISTENER

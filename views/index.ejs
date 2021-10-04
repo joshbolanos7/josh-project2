@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <sytle>
-        ul { 
-            list-style-type: non;
-            margin: 0; 
-            padding: 0; 
-        }
-        li { 
-            display: inline; 
-        }
-    </sytle>
-    <title>Soccer Player Stats Home Page</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-    <ul>
-        <li><a href=""</li>
-    </ul>
+    <h1>Soccer Player Stats Home Page</h1>
+    <header>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href=""> Create/New</a></li>
+        </ul>
+    </header>
+
+    <div class="container">
+               <% players.forEach(players => { %>
+                <h2><%=players.name; %></h2>
+                <a href="/home/<%=players._id; %>"><img src="<%= players.img %>"></a>
+               <% }) %>
+    </div>
+
 </body>
+
 </html>

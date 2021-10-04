@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 const mongoose = require ('mongoose');
 const app = express();
 const db = mongoose.connection;
+const Player = require('./models/playerSeed');
 //___________________
 //Port
 //___________________
@@ -49,7 +50,9 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // =======================================
 
 // INDEX (get)
-
+app.get("/home" , (req, res) => {
+  res.render('index.ejs', { players: Player})
+});
 
 // NEW (get)
 

@@ -6,7 +6,7 @@ const playerSchema = new mongoose.Schema({
     nationality: {type: String, required: true},
     img: {type: String, required: true}, 
     position: {type: String, required: true}, 
-    team: { type: String, required: true}, 
+    team: {type: String, required: true}, 
     number: {type: String, required: true},
     overall: {type: String, required: true},
 });

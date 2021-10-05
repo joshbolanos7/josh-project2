@@ -6,8 +6,6 @@ const express = require('express');
 const methodOverride = require('method-override');
 const mongoose = require ('mongoose');
 const app = express();
-const db = mongoose.connection;
-// const Player = require('./models/playerSeed');//
 const Player = require('./models/players');
 //___________________
 //Port
@@ -29,6 +27,7 @@ mongoose.connect(MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true
 
 // Database Connection Error / success
 // Define callback functions. 
+const db = mongoose.connection;
 db.on('error', (err) => console.log(err.message + ' is mongo not running?'));
 db.on('connected', () => console.log('mongod connected: '));
 db.on('disconnected', () => console.log('mongod disconnected'));
@@ -41,7 +40,6 @@ app.use(express.static('public'));
 
 // populates req.body with parsed info from forms - if no data from forms will return an empty object {}
 app.use(express.urlencoded({ extended: true }));// extended: false - does not allow nested objects in query strings
-app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
@@ -61,12 +59,12 @@ app.get("/home" , (req, res) => {
 
 // NEW (get)
 app.get('/home/new', (req, res) => {
-  res.render('new.ejs')
+  res.render('new.ejs');
 });
 
 // DESTROY (delete)
 app.delete('/home/:id', (req, res) => {
-  Player.findbyIdAndDelete(req.params.id, (err, data) => {
+  Player.findByIdAndDelete(req.params.id, (err, data) => {
     res.redirect('/home');
   });
 });
@@ -85,8 +83,8 @@ app.put('/home/:id', (req, res) => {
 app.post('/home', (req, res) => {
   Player.create(req.body, (error, createdPlayer) => {
     res.redirect('/home');
-  })
-})
+  });  
+});
 
 
 // EDIT (get) (put)

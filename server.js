@@ -45,63 +45,10 @@ app.use(express.urlencoded({ extended: true }));// extended: false - does not al
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
 // =======================================
-//              ROUTES
+//           ROUTES/CONTROLLERS
 // =======================================
-
-// INDEX (get)
-app.get("/home" , (req, res) => {
-  Player.find({}, (error, allPlayers) => {
-    res.render('index.ejs', {
-      players: allPlayers,
-    })
-  })
-});
-
-// NEW (get)
-app.get('/home/new', (req, res) => {
-  res.render('new.ejs');
-});
-
-// DESTROY (delete)
-app.delete('/home/:id', (req, res) => {
-  Player.findByIdAndDelete(req.params.id, (err, data) => {
-    res.redirect('/home');
-  });
-});
-
-// UPDATE (put)
-app.put('/home/:id', (req, res) => {
-  Player.findByIdAndUpdate(req.params.id, req.body, 
-    {new: true},
-     (error, updatedPlayer) => {
-       res.redirect(`/home/${req.params.id}`);
-     })
-  })
-
-
-// CREATE (post)
-app.post('/home', (req, res) => {
-  Player.create(req.body, (error, createdPlayer) => {
-    res.redirect('/home');
-  });  
-});
-
-
-// EDIT (get) (put)
-app.get('/home/:id/edit', (req, res) => {
-  Player.findById(req.params.id, (error,foundPlayers) => {
-    res.render('edit.ejs', {players: foundPlayers})
-  })  
-})
-
-// SHOW (get)
-app.get('/home/:id', (req, res) => {
-  Player.findById(req.params.id, (err, foundPlayers) => {
-    res.render('show.ejs', { 
-      players: foundPlayers,
-    })
-  })
-});
+const playerRouter = require('./controllers/player');
+app.use('/home', playerRouter);
 
 
 // =======================================

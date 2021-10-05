@@ -5,28 +5,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link href="/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    <h1>Soccer Player Stats Home Page</h1>
+    <h1 class="text-white text-center pt-5">Soccer Player Stats Home Page</h1>
     <header>
         <ul>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/home/new"> Create/New</a></li>
+            <li class="nav-home"><a href="/home">Home</a></li>
+            <li class="nav-new"><a href="/home/new"> Create/New</a></li>
         </ul>
     </header>
 
+
+
     <div class="container">
-            <% players.forEach(players => { %>
-                <h2><%=players.name; %></h2>
-                <a href="/home/<%=players._id; %>"><img src="<%= players.img %>"></a>
-                <a href="/home/<%=players._id; %>/edit"><button>Edit</button></a>
+        <% players.forEach(players=> { %>
+            <div>
+                <h1><%=players.name; %></h1>
+                <a class="player-image"href="/home/<%=players._id; %>"><img src="<%= players.img %>" height="250px" width="175px" class="rounded mx-auto d-block"></a>
+                <a href="/home/<%=players._id; %>/edit"><button type="button"
+                        class="btn btn-success rounded mx-auto d-block">Edit</button></a>
                 <form action="/home/<%=players.id %>?_method=DELETE" method="POST">
-                    <input type="submit" value="DELETE" />
+                    <input type="submit" value="DELETE" class="btn btn-danger rounded mx-auto d-block pt-2" />
                 </form>
-            <% }) %>
+            </div>
+         <% }) %>
     </div>
+
+
+<!-- 
+    <li class="list-groupitem list-group table-row player-group-item">
+        <div class="content player-item font 24">
+            <a class="display-block padding-0" href="/home/new/%>"></a>
+            <span class="player-rating stream-col-50 text-center">
+                <span class="revision-gradient shadowed font-12 fut 22 gold icon">95</span>
+            </span>
+            <span class="player-info">
+                <img class="player-image loaded" alt="Diego Maradona 95"
+                    src="https://futhead.cursecdn.com/static/img/22/players/237074.png" height="50" width="50">
+                <img class="player-nation loaded" src="https://futhead.cursecdn.com/static/img/22/nations/52.png"
+                    height="20" width="25">
+                <span class="player-name">Diego Maradona</span>
+            </span>
+        </div>
+    </li> -->
+
 
 </body>
 

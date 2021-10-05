@@ -1,18 +1,43 @@
-.container { 
-    display: inline-block; 
+*{
+    box-sizing: border-box;
+}
+@media screen and (max-width: 767px){
+    .player-name {
+        font-size: 14px;
+    }
+}
+
+img {
+    align-content: flex-start;
+} 
+
+h1 { 
+    text-align: center;
+}
+h2 { 
+    text-align: center;
 }
 .show { 
-    border: olive;
-    border-style: dotted;
     text-align: center;
 
 }
+.container { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+}
 ul { 
+    position: fixed;
+    top: 0;
+    width: 100%;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: aquamarine;
+    background-color: #11c9d7;
+    opacity: 0.5;
 }
 li { 
     float: left
@@ -25,7 +50,7 @@ li a {
     text-decoration: none;
 }
 li a:hover { 
-    background-color: #111;
+    background-color: whitesmoke;
 }
 body { 
     background-color: grey;

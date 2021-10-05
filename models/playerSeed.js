@@ -6,7 +6,7 @@ module.exports = [{
     team: "Paris Saint-Germain", 
     position: 'Attack',
     number: '30', 
-    overall: '93'
+    overall: '93',
 }, 
 { 
     name: 'Cristiano Ronaldo', 
@@ -16,7 +16,7 @@ module.exports = [{
     team: 'Manchester United', 
     position: 'Attack', 
     number: '7', 
-    overall: '91'
+    overall: '91',
 }, 
 { 
     name: 'Ansu Fati Vieria', 
@@ -24,8 +24,8 @@ module.exports = [{
     nationality: 'Spain', 
     img: 'https://i.imgur.com/HWtourU.jpg?1', 
     team: 'FC Barcelona', 
-    postion: 'Attack', 
+    position: 'Attack', 
     number: '10', 
-    overall: '75' 
+    overall: '75',
 }, 
 ];

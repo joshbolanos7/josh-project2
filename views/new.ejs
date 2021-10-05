@@ -5,11 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="/style.css" rel="stylesheet" type="text/css">
     <title>Create Player</title>
 </head>
 
 <body>
-    <h1>Add a Player</h1>
+    <h1 class ="text-white text center pt-5">Add a Player</h1>
+    
+    <header>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/home/new"> Create/New</a></li>
+        </ul>
+    </header>
+
     <form action="/home" method="POST">
         Name: <input type="text" name="name" /><br />
         Date of Birth: <input type:="date" name="dob" /><br />
@@ -17,7 +28,7 @@
         Image: <input type:="url" name="img" /> <br />
         Position: <input type:="text" name="position" /> <br />
         Team: <input type="text" name="team" /> <br />
-        Number: <input type="number" name="number" /> <br/>
+        Number: <input type="number" name="number" /> <br />
         Overall: <input type="number" name="overall" /> <br />
         <input type="submit" name="" value="Add Player" />
     </form>

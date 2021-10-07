@@ -14,7 +14,7 @@ const playerSeed = require('../models/playerSeed')
 playerRouter.get('/seed', (req, res) => {
     Player.deleteMany({}, (error, allplayers) => {})
     Player.create(playerSeed, (error, data) => {
-        res.redirect('/home');
+        res.redirect('/');
     })
 });
 

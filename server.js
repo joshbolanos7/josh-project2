@@ -48,7 +48,7 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //           ROUTES/CONTROLLERS
 // =======================================
 const playerRouter = require('./controllers/player');
-app.use('/home', playerRouter);
+app.use('/', playerRouter);
 
 
 // =======================================

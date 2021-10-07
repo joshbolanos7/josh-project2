@@ -18,4 +18,8 @@ The tools I used to build my app:
 
 ## Get Started!: 
 
+[URL to Heroku deployment](https://soccerplayerstats-project2.herokuapp.com)
+
 ## Future Enhancements: 
+
+Will want to add a lot of small details to the app to make it look "professional", fix the little details with styling as well. 

@@ -15,8 +15,8 @@
     <div class="header-contain">
         <header>
             <ul class="nav-bar">
-                <li class="nav-home"><a href="/home">Home</a></li>
-                <li class="nav-new"><a href="/home/new"> Create/New</a></li>
+                <li class="nav-home"><a href="/">Home</a></li>
+                <li class="nav-new"><a href="/new"> Create/New</a></li>
                 <a href="https://onefootball.com/en/competition/laliga-10/table"><img src="/images/laligalogo.png"
                         alt="Spanish La Liga Logo" width="60" height="75"></a>
 
@@ -76,7 +76,7 @@
     <h1 class="text-center text-white p-5">Edit Player: <%= players.name %> </h1>
 
     <div class="edit-player-form">
-        <form action="/home/<%= players._id; %>?_method=PUT" class="edit-page" method="POST">
+        <form action="/<%= players._id; %>?_method=PUT" class="edit-page" method="POST">
             Name: <input type="text" name="name" value="<%=players.name%>" /><br />
             Date of Birth: <input type:="date" name="dob" value="<%=players.dob%>" /><br />
             Nationality: <input type:="text" name="nationality" value="<%=players.nationality%>" /><br />
@@ -111,7 +111,7 @@
         </footer>
     </div> -->
     <div id="footer"> 
-        
+
     </div>
 
 </body>

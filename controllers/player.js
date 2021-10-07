@@ -40,7 +40,7 @@ playerRouter.get("/" , (req, res) => {
   // DESTROY (delete)
   playerRouter.delete('/:id', (req, res) => {
     Player.findByIdAndDelete(req.params.id, (err, data) => {
-      res.redirect('/home');
+      res.redirect('/');
     });
   });
   
@@ -49,7 +49,7 @@ playerRouter.get("/" , (req, res) => {
     Player.findByIdAndUpdate(req.params.id, req.body, 
       {new: true},
        (error, updatedPlayer) => {
-         res.redirect(`/home/${req.params.id}`);
+         res.redirect(`/${req.params.id}`);
        })
     })
   
@@ -57,7 +57,7 @@ playerRouter.get("/" , (req, res) => {
   // CREATE (post)
   playerRouter.post('/', (req, res) => {
     Player.create(req.body, (error, createdPlayer) => {
-      res.redirect('/home');
+      res.redirect('/');
     });  
   });
   

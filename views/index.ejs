@@ -14,8 +14,8 @@
     <div class="header-contain">
         <header>
             <ul class="nav-bar">
-                <li class="nav-home"><a href="/home">Home</a></li>
-                <li class="nav-new"><a href="/home/new"> Create/New</a></li>
+                <li class="nav-home"><a href="/">Home</a></li>
+                <li class="nav-new"><a href="/new"> Create/New</a></li>
                 <a href="https://onefootball.com/en/competition/laliga-10/table"><img src="/images/laligalogo.png"
                         alt="Spanish La Liga Logo" width="60" height="75"></a>
 
@@ -82,11 +82,11 @@
                 <h1>
                     <%=players.name; %>
                 </h1>
-                <a class="player-image" href="/home/<%=players._id; %>"><img src="<%= players.img %>" height="250px"
+                <a class="player-image" href="/<%=players._id; %>"><img src="<%= players.img %>" height="250px"
                         width="175px" class="rounded mx-auto d-block"></a>
-                <a href="/home/<%=players._id; %>/edit"><button type="button"
+                <a href="/<%=players._id; %>/edit"><button type="button"
                         class="btn btn-success rounded mx-auto d-block">Edit</button></a>
-                <form action="/home/<%=players.id %>?_method=DELETE" method="POST">
+                <form action="/<%=players.id %>?_method=DELETE" method="POST">
                     <input type="submit" value="DELETE" class="btn btn-danger rounded mx-auto d-block" />
                 </form>
             </div>

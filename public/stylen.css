@@ -1,0 +1,47 @@
+body { 
+    background: url(./images/soccer-field.jpg) no-repeat;
+    background-size: cover;
+    
+}
+ul { 
+    position: fixed;
+    top: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #11c9d7;
+    opacity: 0.5;
+}
+li { 
+    float: left
+}
+li a { 
+    display: inline-block;
+    color: black; 
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover { 
+    background-color: whitesmoke;
+}
+.create-player-form {
+    width: 280px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: azure;
+    text-align: left;
+}
+
+footer { 
+    align-content: flex-start;
+    text-align: center;
+    padding:10px;
+    border-top: lightskyblue;
+    border-style: solid;
+}

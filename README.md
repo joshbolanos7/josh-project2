@@ -16,6 +16,10 @@ The tools I used to build my app:
 ![wireframe Index layout](public/images/index-wireframe-project2.png)
 ![wireframe Show layout](public/images/show-wireframe-project2.png)
 
+## Screenshot of deployed App
+
+![Screenshot of App](public/images/screenshot-project2.png)
+
 ## Get Started!: 
 
 [URL to Heroku deployment](https://soccerplayerstats-project2.herokuapp.com)
